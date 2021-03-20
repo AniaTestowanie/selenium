@@ -1,0 +1,76 @@
+<students>
+    <student>
+        <imie lang="en">John</imie>
+        <nazwisko class="red">Kowalski</nazwisko>
+        <nazwisko>Kowalski2</nazwisko>
+        <kierunek>Geologia</kierunek>
+        <rok>2</rok>
+        <grupa>1</grupa>
+    </student>
+</students>
+
+<!--
+
+parent - każdy element ma jednego rodzica
+children - każdy element może mieć zero, jedno lub więcej dzieci
+siblings - gałęzie które mają jednego tego samego rodzica
+ancestors - rodzic gałęzi oraz rodzic rodzica gałęzi itd.
+descendants - dziecko gałęzi oraz dzieci dziecka gałęzi itd.
+
+
+Jako gałąź rozumiemy tutaj pojedynczy tag jak np. student
+
+Jeśli chodzi o strukturę naszego pliku, to pierwszym tagiem jest students, co wskazuje, że plik będzie zawierał listę studentów
+W naszym przypadku student będzie dzieckiem tagu students (tj. students jest nadrzędny do student)
+Wewnątrz tagu student mamy informację o konkretnej jednostce - konkretnym studencie, tagi: imię, nazwisko, kierunek, rok, grupa
+to dzieci tagu student (czyli analogicznie student jest dla nich tagiem nadrzędnym)
+
+Atrybut lang lub class dodatkowo określa nam dany tag odpowiednio imię i nazwisko (tak jak np. w html określał nam atrybut name)
+
+W naszym przypadku students ma 1 dziecko - student
+Student ma 5 dzieci
+A np. grupa ma 0 dzieci
+
+Imię, nazwisko, kierunek rok i grupa to rodzeństwo (siblings)
+Descendants dla students to student i wszystkie zaiwerające się w nim tagi
+Ancestors w stosunku do imienia to student i students
+
+Spróbujmy teraz użyć XPath, żeby wskazać imię
+Wpisujemy po kolei nazwy gałęzi:
+
+/students/student/imie
+
+możemy też to zrobić korzystając z podwójnego //
+
+//imie
+
+Jeżeli wybieramy dwa slashe, to znaczy, że szukamy konkrentej gałęzi w całej strukturze.
+W przypadku pojedynczych musimy przejść całą strukturę od początku do końca
+
+/students//imie
+
+Możemy też użyć powyższego zapisu, który oznacza, że wewnątrz tagu students szukamy gałęzi imie
+
+//imie[text()='John']
+//kierunek[text()='Geologia']
+
+Może być też taka stuacja, że szukamy imienia i chcemy sprawdzić, pobrać takie imię, którego tekst będzie miał konkretną wartość
+
+Co w przypadku gdybyśmy mieli znaleźć nasz tag po atrybucie?
+
+//imie[@lang='en']
+//nazwisko[@class='red']    znajdzie nam tylko nazwisko Kowalski, Kowalski2 nie zostanie odnaleziony bo nie ma przyporządkowanego atrybutu klasy
+
+Za pomocą tego zapisu znajdziemy wszystkie linki w całej strukturze:
+
+// a
+
+(jeśli będziemy zwracać jeden WebElement to znajdzie nam tylko pierwszy link, jeśli natomiast listę, to zwróci nam wszystkie linki)
+
+Znajdź nam dowolną gałąź, w której tekst jest równy Kowalski:
+
+//*[text()='Kowalski']
+
+
+
+-->
