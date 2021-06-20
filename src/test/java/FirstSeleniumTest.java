@@ -1,9 +1,11 @@
-import org.junit.Test;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 
 
 public class FirstSeleniumTest {
@@ -13,7 +15,7 @@ public class FirstSeleniumTest {
      */
 
     @Test
-    public void googleOpenTest() {
+    public void openGooglePage() {
 
         /*
         Gdybyśmy zostawili sam ten zapis:
@@ -27,17 +29,48 @@ public class FirstSeleniumTest {
         Pamiętamy, że ścieżkę w Intellij trzeba określić jak poniżej.
 
         Można też skorzystać z innych przeglądarek, dodając odpowiedni plik exe, określając właściwą ścieżkę do niego oraz definiując właściwy obiekt klasy
+
+        Moglibyśmy też od początku określić, że będziemy mieć do czynienia z Chrome i podać:
+        ChromeDriver driver = new ChromeDriver();
+        My będziemy korzystać z interfejsu WebDriver, bo łatwiej będzie w tym przypadku podmieniać implementację interfejsu, wskazując na inną przeglądarkę
          */
-        String driverPath = "C:\\Users\\Saturn\\Desktop\\szkolenie Ania\\selenium\\src\\main\\resources\\executables\\drivers\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", driverPath);
+        String driverPathChrome = "C:\\Users\\Saturn\\Desktop\\szkolenie Ania\\selenium\\src\\main\\resources\\executables\\drivers\\geckodriver.exe";
+        String driverPathFirefox = "C:\\Users\\Saturn\\Desktop\\szkolenie Ania\\selenium\\src\\main\\resources\\executables\\drivers\\geckodriver.exe";
+        System.setProperty("webdriver.chrome.driver", driverPathChrome);
+        System.setProperty("webdriver.gecko.driver", driverPathFirefox);
+        System.setProperty("webdriver.ie.driver","C:\\Users\\Saturn\\Desktop\\szkolenie Ania\\selenium\\src\\main\\resources\\executables\\drivers\\IEDriverServer.exe");  // w ten sposób w jednej linijce też możemy określić nasz driver
+
+
+        /*
+        To że określamy kilka możliwych ścieżek do różnych driverów, nie powinno generować żadnych problemów.
+        Zawsze zaciągnięte zostanie to, co jest potrzebne
+         */
+
 
         /*
         Aby określić wielkość przeglądarki możemy się posłużyć klasą dostarczoną przez Selenium i tworząc nowy obiekt tej klasy
         w konstruktorze określamy parametry szerokości i wysokości
          */
-        Dimension dimension = new Dimension(1000,800);
+        // Dimension dimension = new Dimension(1000,800);
 
-        WebDriver driver = new ChromeDriver();      // za pomocą tego zapisu powinno nam się otworzyć nowe okno chrome
+        /*
+        W zależności od tego, jaką przeglądarką chcemy się posłużyć, zmieniamy po prostu implementację, tj. wpisujemy odpowiednio:
+        new ChromeDriver / new FirefoxDriver, new InternetExplorerDriver etc.
+        Poniższy zapis uruchomi nam wybraną przeglądarkę
+         */
+
+
+        // WebDriver driver = new ChromeDriver();
+
+
+        /*
+        W przyoadku Internet Explorera podczas standardowego uruchamiania przeglądarki, mogą pojawiać się błędy
+        Dlatego będzie potrzebne obejście. W tym celu można zastosować poniższe rozwiązanie:
+         */
+
+        InternetExplorerOptions options = new InternetExplorerOptions();
+        options.withInitialBrowserUrl("http://www.google.com");
+        WebDriver driver = new InternetExplorerDriver(options);
 
 
         /*
@@ -54,41 +87,41 @@ public class FirstSeleniumTest {
         Oczywiście pamiętamy o fakcie, że w zależności którą metodę wpiszemy jako pierwszą takie będziemy mieli kroki wykonania
          */
 
-        driver.manage().window().setSize(dimension);
+        // driver.manage().window().setSize(dimension);
 
         /*
         Zamiast hardcodować wymiary okna możemy też skorzystać z opcji maximize, która otworzy nam okno na cały ekran
 
         driver.manage().window().maximize();
-         */
+         *//*
 
 
-        /*
+        *//*
         Aby zamknąć okno przeglądarki po skończonym teście, musimy posłużyć się metodą driver.quit();
-         */
+         *//*
         driver.quit();
 
 
 
-        /*
+        *//*
         Poniżej drugie otworzenie przeglądarki, tym razem ze stroną zapisaną na dysku
-         */
+         *//*
 
         WebDriver driver2 = new ChromeDriver();      // za pomocą tego zapisu powinno nam się otworzyć nowe okno chrome
         driver2.get("C:\\Users\\Saturn\\Desktop\\szkolenie Ania\\dane do kursu selenium\\Test.html");
         driver2.manage().window().setSize(dimension);
 
-        /*
+        *//*
         Jeżeli chcemy kliknąć w dany przycisk na stronie musimy najpierw otworzyć stronę w notatniku
         lub w przeglądarce kliknąć prawym przyciskiem myszy i wybrać opcję wyświetl źródło strony (ctrl + U),
         aby odczytać id danego przycisku
         To umożliwi nam skorzystanie z metody findElement, w której definiujemy konkretny id po którym element ma zostać znaleziony,
         a następnie metody click, która naciśnie dany przycisk
-         */
+         *//*
 
         driver2.findElement(By.id("newPage")).click();
 
-        /*
+        *//*
         W momencie kiedy w wyniku testu otworzą nam się dwa lub więcej okna przeglądarki i zastosujemy metodę
         driver2.quit();
         zamkną mi się wszystkie otwarte podczas testu okna
@@ -97,9 +130,9 @@ public class FirstSeleniumTest {
         driver2.close() która zamknie nam stronę testową (stronę pierwotną), a zostawi nam okno,
         które zostało otworzone przez kliknięcie przycisku
 
-         */
+         *//*
 
-        driver2.close();
+        driver2.close();*/
 
     }
 

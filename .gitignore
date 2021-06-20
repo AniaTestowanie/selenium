@@ -1,2 +1,5 @@
 # Project exclude paths
 /target/
+/.idea/
+/src/main/resources/executables/drivers/geckodriver.exe
+/src/main/resources/executables/drivers/IEDriverServer.exe
