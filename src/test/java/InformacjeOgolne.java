@@ -48,7 +48,11 @@ public class InformacjeOgolne {
     jednak kiedy nie mamy pomysłu, jak się "dobrać" do jakiegoś elementu, może być to dla nas pomocne
 
 
+    * HTML
+    Informacje o strukturze kodu html znajdują się w folderze szkolenie Ania -> HTML
 
+    * Strony do ćwiczeń w ramach testu dostępne są tu:
+    https://testeroprogramowania.github.io/selenium/
 
 
      */
