@@ -112,6 +112,7 @@ public class WeryfikacjaSelektorówCssNaPrzegladarce {
     nie zawsze skopiowany selektor będzie tym najbardziej optymalnym, np. kiedy chcemy na naszej stronie znaleźć paragraf topSecret:
     $$("body > p")        -> wynik kopiowania, moglibyśmy mieć dużo więcej paragrafów w body, szczególnie gdyby nasza struktura na stronie by się zmieniło
     $$(".topSecret")      -> bardziej optymalny odpowiednik, bardziej odporny na zmianę (wyszukuje wszystkie elementy o klasie topSecret)
+    Pamiętamy też że id czy name powinny być na stronie unikalne, dlatego zawsze będzie to dobry wybór.
 
 
     */
