@@ -10,7 +10,27 @@ import org.testng.annotations.Test;
 
 public class LokalizacjaElementow2 {
 
+/*
+Które selektory są najlepsze:
 
+Najlepiej korzystać z id, które powinno być unikalne na całej stronie
+
+Należy tu jednak sprawdzić, czy id nie jest generowane automatycznie. Jeśli tak, to nie ma sensu z niego korzystać, bo będzie się zmieniać po każdym odświeżeniu strony
+
+Jeśli nie ma id, możemy korzystać z atrybutu name
+
+Z reguły wartość tego atrybutu też powinna być unikalna (choć nie jest to obligatoryjne - należy wówczas sprawdzić to za pomocą narzędzi deweloperskich)
+
+Do znajdowania linków najlepiej wykorzystać dedykowane metody takie jak By.linkText("") lub By.partialLinkText("")
+
+Jeżeli nie ma id ani name oraz nie wyszukujemy linków, to wówczas korzystamy z selektorów css (selektory XPath są najwolniejsze).
+
+Czasem jednak nie ma wyjścia i należy skorzystać z selektorów XPath, ponieważ mogą one być najbardziej rozbudowane
+(np. za pomocą css nie jesteśmy w stanie sprawdzić, czy tekst jest równy jakieś wartości lub odwołać się do rodzica).
+
+Selektory wyszukujące po nazwie klasie, można wykorzystać do lokalizowania grupy elementów (do wyszukiwania unikalnych elementów, nie jest to dobre rozwiązanie)
+
+ */
 
 
 
