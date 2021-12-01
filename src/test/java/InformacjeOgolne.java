@@ -55,6 +55,11 @@ public class InformacjeOgolne {
     https://testeroprogramowania.github.io/selenium/
 
 
+    Optymalizacja importów: ctrl + alt + o
+    Jeśli mamy nieużywane importy (tj. są wyszarzone) i chcemy się ich pozbyć, to możemy albo usunąć je ręcznie
+    albo skorzystać ze skrótu klawiaturowego
+
+
      */
 
 
