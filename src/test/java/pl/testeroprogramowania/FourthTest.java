@@ -1,5 +1,6 @@
 package pl.testeroprogramowania;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /*
@@ -26,5 +27,22 @@ public class FourthTest extends BaseTest{
     @Test
     public void thirdTest() {
         System.out.println("I am third test");
+    }
+
+    @Test(dataProvider = "data")
+    public void dataProviderTest(String value, String number) {
+        System.out.println(value + " " + number);
+
+        /*
+        W ramach tej metody test wykonany zostanie trzykrotnie z danymi określonymi za pomocą DataProvider
+        w kolejności w jakiej wprowadziliśmy te dane
+
+        W DataProvider nie trzeba określać danych na sztywno - można ja obierać z pliku tekstowego, z excela itp.
+         */
+    }
+
+    @DataProvider(name = "data")
+    public Object[][] DataProvider() {
+        return new Object[][] {{"I am first test","First"},{"I am second test","Second"},{"I am third test", "Third"}};
     }
 }

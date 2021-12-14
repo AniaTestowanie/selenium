@@ -33,10 +33,7 @@ public class FirstTest extends BaseTest {
     @Test
     public void firstTest() {
 
-        String driverPath = "C:\\Users\\Saturn\\Desktop\\szkolenie Ania\\selenium\\src\\main\\resources\\executables\\drivers\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", driverPath);
-
-        driver = new ChromeDriver();
+        driver = DriverFactory.getDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
         driver.findElement(By.id("clickOnMe")).click();
@@ -61,7 +58,7 @@ public class FirstTest extends BaseTest {
         otrzymania błędu, znajdują się w drugiej metodzie tej klasy secondTest()
          */
 
-        // Assert.assertEquals(paraText,"Dopiero się","teksty nie są sobie równe");
+        Assert.assertEquals(paraText,"Dopiero się","teksty nie są sobie równe");
 
         /*
         Takiego samego sprawdzenia możemy dokonać również poprzez zupełnie inny zapis i dwukrotną asercję -

@@ -63,7 +63,12 @@ public class InformacjeOgolne {
     TestNG adnotacje - do nauki w paczce pl.testeroprogramowania
 
 
+    Skrót klawiaturowy ctrl + shift + f pozwala wyszukać w projekcie określone frazy
 
+
+    DataProvider dostarcza nam dane testowe dla konkretnej metody testowej. Pozwala to nie duplikować kodu i w łatwy
+    sposób zmieniać dane wejściowe
+    DataProvider będzie zastosowany w klasie FourthTest
 
      */
 
