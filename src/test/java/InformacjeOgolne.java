@@ -60,6 +60,11 @@ public class InformacjeOgolne {
     albo skorzystać ze skrótu klawiaturowego
 
 
+    TestNG adnotacje - do nauki w paczce pl.testeroprogramowania
+
+
+
+
      */
 
 
